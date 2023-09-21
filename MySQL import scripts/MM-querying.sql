@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS MavenMarket;
+CREATE DATABASE MavenMarket;
+USE MavenMarket;
+
