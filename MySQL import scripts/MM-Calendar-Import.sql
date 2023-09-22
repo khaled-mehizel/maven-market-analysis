@@ -1,12 +1,11 @@
 -- -------------------------------------
 -- CSV Lint plug-in v0.4.6.2
 -- File: MavenMarket_Calendar.csv
--- Date: 21-Sep-2023 22:25
 -- SQL type: mySQL
 -- -------------------------------------
 DROP TABLE IF EXISTS MM_Calendar;
 CREATE TABLE MM_Calendar (
-	`date` datetime
+	`date` date
 );
 
 -- -------------------------------------
