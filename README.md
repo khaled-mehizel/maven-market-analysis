@@ -1,5 +1,6 @@
 # maven-market-analysis
- A project offered by Maven Analytics: EDA and dashboard on the sales of a fictional market
+ A project offered by Maven Analytics: EDA and dashboard on the sales of a fictional market using MySQL, Power BI, and a whole lotta DAX.
+
 
 # Overview
 This is a bonus project included in Maven Analytics' Power BI for Business Intelligence course, it gives some data about the market, like information about the customers, products, regions, dates, stores, returns, and transactions for the years 1997 and 1998.
