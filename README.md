@@ -82,4 +82,39 @@ When we're done, we export the views as .csv files and import them into Power Qu
   - The data tables are connected via shared lookup tables rather than directly to each other.
 
 - We verify the data categories (especially the geographical ones) in the data view.
+
+# Adding the DAX measures and calculated columns
+- We already added a bunch of these in SQL, so we should flex our DAX muscles a bit!
+### Calendar
+
+- Added a column that returns "Y" or "N" based on whether the date is a weekend or not, using **IF()**, a **SWITCH()** will work as well, but we'll leave it for later.
+- Added a column that returns the date of the end of each month, using the intuitive **EOMONTH()**.
+### Customers
+- Added a column that returns the customer's age via **DATEDIFF()** and **TODAY()**.
+     - Since we're using the TODAY function some customers will be really old.
+- Added a column that returns the country code, via a **LEFT()** function.
+### Products
+- Segregated the columns to three price categories via a **SWITCH()** function, nested IFs are not elegant.
+### Transactions
+Created the following measures:
+- "Quantity Sold" measure using **SUM()**
+- "Total Sales" measure using **COUNTROWS()**
+- "Weekend Transactions" using **CALCULATE()** and the "is_weekend" column as filter.
+- "% Weekend Transactions"
+- "Total Revenue" using **SUMX()**, by multiplying the transaction quantity by number of transactions, we need it to iterate by each row (day), **RELATED()** is to use columns from different tables
+- "Total Cost" using **SUMX()** and **RELATED()**, by multiplying the transaction quantity by product costs.
+- "Total Profit" by simply subtracting the total cost from the total revenue, no need for an iterator.
+- "Profit Margin" by dividing the profit by the revenue
+- "YTD Revenue" using **DATESYTD()** nested in the ever-amazing **CALCULATE()**.
+- "60-day Revenue" using **DATESINPERIOD()** and **MAX()** (to select the latest date) also nested in a **CALCULATE()**. It's a running total over a selected 60 days, like how you would do with a parameter on Tableau except I chose it instead of the user, I did this in my [London Bike Share project](https://github.com/khaled-mehizel/bike-share-lndn).
+- "Last Month Revenue" this for our Revenue Target KPI, created using **DATEADD()** nested in the **CALCULATE()**, my beloved
+- "Revenue Target": The baseline is set as 105% of Last Month's Revenue.
+
+### Returns
+Created the following measures:
+- "Quantity Returned" measure using **SUM()**
+- "Total Returns" measure using **COUNTROWS()**
+- "Return Rate" by dividing total returns by total sales
+- "Total Loss due to Returns" using **SUMX()**, by multiplying the return quantity by product costs.
+- "YTD Losses","Last Month Losses" calculated the same way as above
 # Visualization
