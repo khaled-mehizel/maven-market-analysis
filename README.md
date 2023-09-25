@@ -117,4 +117,7 @@ Created the following measures:
 - "Return Rate" by dividing total returns by total sales
 - "Total Loss due to Returns" using **SUMX()**, by multiplying the return quantity by product costs.
 - "YTD Losses","Last Month Losses" calculated the same way as above
+
 # Visualization
+- Added the Maven Market logo to the top left.
+- Added a matrix containing the product brand, total sales, total profit, and its return rate. Each conditionally formatted.
