@@ -21,7 +21,7 @@ All the data prep can be performed in Power Query but for demonstration purposes
 - Converted the .csv files to be cleaned in MySQL Workbench into .sql scripts for importing.
 
 # Data Prep and querying in MySQL
-We'll import 5 of the 8 csv files into MySQL, particularly the lookup tables:
+We'll import 5 of the 8 CSV files into MySQL, particularly the lookup tables:
 ### Customers:
  - Using **CONCAT()**, we merge the first and last names of the customers in a new calculated column, and drop the original columns (this can only be done later as the new column is dependent on the old ones, we'll get back to it in the PQ part).
  - Using **YEAR()** in a calculated column, we extract the birth year from the birthdate.
@@ -38,7 +38,7 @@ We'll import 5 of the 8 csv files into MySQL, particularly the lookup tables:
 - Set Region_ID as a foreign key that references the primary key in the 'Regions' table using the following statement:
       
       foreign key ("region_id") REFERENCES MM_region("region_id")
-- Created a full_address calculated column by concatenating the address columns, this time using **CONCAT_WS()** because it's there, and it's very neat! We'll specify a space as the seperator, and it'll add it in automatically.
+- Created a full_address calculated column by concatenating the address columns, this time using **CONCAT_WS()** because it's there, and it's very neat! We'll specify a space as the separator, and it'll add it in automatically.
 - We extract the area code from the store's phone number using ~~LEFT() and CHARINDEX()~~ **SUBSTRING_INDEX()**
   - I don't know how US area codes work, so I must assume that the area codes aren't necessarily only 3 digits.
   - We add a -1 inside the LEFT function so that it doesn't extract the hyphen as well.
@@ -108,7 +108,7 @@ Created the following measures:
 - "Profit Margin" by dividing the profit by the revenue
 - "YTD Revenue" using **DATESYTD()** nested in the ever-amazing **CALCULATE()**.
 - "60-day Revenue" using **DATESINPERIOD()** and **MAX()** (to select the latest date) also nested in a **CALCULATE()**. It's a running total over a selected 60 days, like how you would do with a parameter on Tableau except I chose it instead of the user, I did this in my [London Bike Share project](https://github.com/khaled-mehizel/bike-share-lndn).
-- "Last Month Revenue" this for our Revenue Target KPI, created using **DATEADD()** nested in the **CALCULATE()**, my beloved
+- "Last Month Revenue" this for our Revenue Target KPI, created using **DATEADD()** nested in the **CALCULATE()**, my beloved. Added similar measures for losses, profit, and sales for each KPI.
 - "Revenue Target": The baseline is set as 105% of Last Month's Revenue.
 
 ### Returns
@@ -121,4 +121,25 @@ Created the following measures:
 
 # Visualization
 - Added the Maven Market logo to the top left.
-- Added a matrix containing the product brand, total sales, total profit, and its return rate. Each conditionally formatted.
+- Added a matrix containing the product brand, total sales, total profit, and its return rate. Each conditionally and visually formatted.
+- Added a few KPIs:
+     - Current Month's sales vs last month's.
+     - Current Month's revenue vs last month's.
+     - Current Month's returns vs last month's.
+     - Current Month's losses (due to returns) vs last month's.
+- Added an area chart to display the trends in profit over the timeline, which can be adjusted using a zoom slider or the slicer at the top.
+- Added a gauge to compare current month's revenue against the target.
+
+# Insights
+- The USA and Mexico are Maven's biggest customers, dwarfing the Canadian portion.
+- Compared to last month, Sales and returns have increased and Losses have decreased, however, revenue hasn't reached the target yet.
+- In terms of sales, Hermanos brand enjoys the highest number of sales, but as the profit margin goes, ADJ rules supreme at 68% despite having the second-highest return rate.
+- In terms of return rate, King, ADJ, and Dollars are the highest, but unlike ADJ, the profit margin for these brands is mediocre.
+- We notice a very sharp increase in revenue in early 1998, going well over double the amounts achieved in October of the previous year (42k to 98k) and after a steady spell spanning a few months, it seems to only be going up from there!
+- Holiday season and the months leading up to it also enjoy a large increase in revenue.
+
+# Recap
+- We acquired a dataset about the transactions, returns, store locations, customers, and products of the Maven Market in North America in the years 1997 and 1998.
+- Used both MySQL and Power Query to clean up the data, make it more useful and useable, as well as model relationships between the tables.
+- Visualized the data and took care to make it very easy and quick for the end user to gleam information.
+- Extracted multiple insights that should help the company gather more profit and hopefully exceed next month's goals.
