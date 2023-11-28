@@ -15,6 +15,7 @@ All the data prep can be performed in Power Query but for demonstration purposes
 - MySQL for preparing the lookup tables.
 - Power Query for the rest of the data prep.
 - Power BI for the modeling and visualization of the data.
+- PowerPoint to write the report.
 
 # Preliminary Data Check
 - Verified data types.
@@ -137,6 +138,9 @@ Created the following measures:
 - In terms of return rate, King, ADJ, and Dollars are the highest, but unlike ADJ, the profit margin for these brands is mediocre.
 - We notice a very sharp increase in revenue in early 1998, going well over double the amounts achieved in October of the previous year (42k to 98k) and after a steady spell spanning a few months, it seems to only be going up from there!
 - Holiday season and the months leading up to it also enjoy a large increase in revenue.
+
+# Report
+- Take a look at the report [here](https://pdfhost.io/v/wtmRhs52S_PowerPoint_Presentation)
 
 # Recap
 - We acquired a dataset about the transactions, returns, store locations, customers, and products of the Maven Market in North America in the years 1997 and 1998.
