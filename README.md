@@ -9,6 +9,24 @@ Timeframe: 1997-1998
 
 All the data prep can be performed in Power Query but for demonstration purposes we'll also do some of it in SQL.
 
+# Goals
+The purpose of this project is to emphasize where our company, Maven Market, has had the biggest revenue, the most sales and returns, and which products and product categories have been the most successful.
+This will allow the higher-ups to work out where to focus improvement efforts, and understand their market share in the countries Maven Market is active in.
+
+# Insights
+- The USA and Mexico are Maven's biggest customers, dwarfing the Canadian portion.
+- Compared to last month, Sales and returns have increased and Losses have decreased, however, revenue hasn't reached the target yet.
+- In terms of sales, Hermanos brand enjoys the highest number of sales, but as the profit margin goes, ADJ rules supreme at 68% despite having the second-highest return rate.
+- In terms of return rate, King, ADJ, and Dollars are the highest, but unlike ADJ, the profit margin for these brands is mediocre.
+- We notice a very sharp increase in revenue in early 1998, going well over double the amounts achieved in October of the previous year (42k to 98k) and after a steady spell spanning a few months, it seems to only be going up from there!
+- Holiday season and the months leading up to it also enjoy a large increase in revenue.
+
+# Results
+- Allowed the leaders of Maven Market to realize which products and products categories have generated the highest revenue and profit, and which suffer from the most returns.
+- Highlighted the American countries Maven Market is active in, and its market share in each one.
+- Helped marketing strategists get ideas on which products and areas to focus on.
+
+
 # Resources and Tools Used
 - Dataset provided by Maven Analytics.
 - CSV Lint (Notepad++ login) to convert the .csv files into .sql scripts and easily import them.
@@ -131,13 +149,6 @@ Created the following measures:
 - Added an area chart to display the trends in profit over the timeline, which can be adjusted using a zoom slider or the slicer at the top.
 - Added a gauge to compare current month's revenue against the target.
 
-# Insights
-- The USA and Mexico are Maven's biggest customers, dwarfing the Canadian portion.
-- Compared to last month, Sales and returns have increased and Losses have decreased, however, revenue hasn't reached the target yet.
-- In terms of sales, Hermanos brand enjoys the highest number of sales, but as the profit margin goes, ADJ rules supreme at 68% despite having the second-highest return rate.
-- In terms of return rate, King, ADJ, and Dollars are the highest, but unlike ADJ, the profit margin for these brands is mediocre.
-- We notice a very sharp increase in revenue in early 1998, going well over double the amounts achieved in October of the previous year (42k to 98k) and after a steady spell spanning a few months, it seems to only be going up from there!
-- Holiday season and the months leading up to it also enjoy a large increase in revenue.
 
 # Report
 - Take a look at the report [here](https://pdfhost.io/v/wtmRhs52S_PowerPoint_Presentation)
