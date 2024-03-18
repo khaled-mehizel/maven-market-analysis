@@ -29,7 +29,10 @@ This will allow the higher-ups to work out where to focus improvement efforts, a
 
 # Resources and Tools Used
 - Dataset provided by Maven Analytics.
-- CSV Lint (Notepad++ login) to convert the .csv files into .sql scripts and easily import them.
+- CSV Lint (Notepad++ login) to convert the .csv files into .sql scripts and easily import them:
+![uh](Report/csvlint_window.png "It can make the CSV into JSON and XML") 
+<br>
+<br>
 - MySQL for preparing the lookup tables.
 - Power Query for the rest of the data prep.
 - Power BI for the modeling and visualization of the data.
@@ -158,3 +161,4 @@ Created the following measures:
 - Used both MySQL and Power Query to clean up the data, make it more useful and useable, as well as model relationships between the tables.
 - Visualized the data and took care to make it very easy and quick for the end user to gleam information.
 - Extracted multiple insights that should help the company gather more profit and hopefully exceed next month's goals.
+![]
